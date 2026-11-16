@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feud — Host Console</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cellipse cx=%2250%22 cy=%2250%22 rx=%2248%22 ry=%2240%22 fill=%22%23f5c518%22/%3E%3Cellipse cx=%2250%22 cy=%2250%22 rx=%2240%22 ry=%2232%22 fill=%22%231f4fe0%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/host.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">F</span><span>Host Console</span></div>
+  <nav class="modes" id="modeTabs">
+    <button data-act="setMode" data-v="main">Main Game</button>
+    <button data-act="setMode" data-v="fastmoney">Fast Money</button>
+  </nav>
+  <div class="spacer"></div>
+  <span id="displayStatus" class="status"></span>
+  <button class="btn" data-act="openDisplay" title="Open the audience display window (D)">Open Display ↗</button>
+  <div class="btn-group">
+    <button class="btn" id="btnUndo" data-act="undo" title="Undo (Ctrl/Cmd+Z)">↶ Undo</button>
+    <button class="btn" id="btnRedo" data-act="redo" title="Redo (Ctrl/Cmd+Shift+Z)">↷</button>
+  </div>
+  <button class="btn" data-act="modal" data-v="editor">Questions</button>
+  <button class="btn" data-act="modal" data-v="settings">Settings</button>
+  <button class="btn" data-act="modal" data-v="history">History</button>
+  <button class="btn" data-act="modal" data-v="newgame">New Game</button>
+  <button class="btn icon" data-act="modal" data-v="help" title="Help &amp; shortcuts (?)">?</button>
+  <button class="btn icon" data-act="hostFullscreen" title="Fullscreen">⛶</button>
+</header>
+
+<div id="storageWarning" class="warn-bar" hidden>Progress could not be saved to browser storage (storage full or blocked). Export a backup from Settings.</div>
+
+<main id="mainView" class="layout">
+  <aside class="col col-left">
+    <section class="panel" id="teamsPanel"></section>
+    <section class="panel" id="scenePanel"><div id="sceneControls"></div><div id="previewHolder"></div></section>
+  </aside>
+
+  <section class="col col-center">
+    <div class="panel round-panel">
+      <div id="roundBar"></div>
+      <div id="questionBox"></div>
+      <div id="answersGrid"></div>
+      <div id="boardActions"></div>
+    </div>
+  </section>
+
+  <aside class="col col-right">
+    <section class="panel flow" id="flowPanel"></section>
+    <section class="panel" id="timerPanel">
+      <div class="panel-title">Timer <span class="muted small">(T start/pause)</span></div>
+      <div class="timer-row">
+        <div class="timer-readout" id="timerReadout">0</div>
+        <div class="timer-btns">
+          <button class="btn" data-act="timerToggle" id="timerToggleBtn">Start</button>
+          <button class="btn" data-act="timerReset">Reset</button>
+          <button class="btn" data-act="timerAdd" data-v="5">+5</button>
+          <button class="btn" data-act="timerHide">Hide</button>
+        </div>
+      </div>
+      <div class="chip-row">
+        <button class="chip" data-act="timerStart" data-v="5">5s</button>
+        <button class="chip" data-act="timerStart" data-v="10">10s</button>
+        <button class="chip" data-act="timerStart" data-v="15">15s</button>
+        <button class="chip" data-act="timerStart" data-v="20">20s</button>
+        <button class="chip" data-act="timerStart" data-v="25">25s</button>
+        <button class="chip" data-act="timerStart" data-v="30">30s</button>
+        <button class="chip" data-act="timerStart" data-v="60">60s</button>
+      </div>
+    </section>
+    <details class="panel" id="overridesDetails">
+      <summary class="panel-title">Host overrides &amp; corrections</summary>
+      <div id="overridesPanel"></div>
+    </details>
+    <section class="panel log-panel">
+      <div class="panel-title">Game log</div>
+      <ol id="logList" class="log"></ol>
+    </section>
+  </aside>
+</main>
+
+<main id="fmView" class="fm-layout" hidden></main>
+
+<div id="modalRoot"></div>
+<div id="toasts" aria-live="polite"></div>
+<input type="file" id="fileInput" accept=".json,application/json" hidden>
+
+<script src="js/sync.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/default-pack.js"></script>
+<script src="js/host.js"></script>
+</body>
+</html>

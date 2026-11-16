@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feud — Display</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cellipse cx=%2250%22 cy=%2250%22 rx=%2248%22 ry=%2240%22 fill=%22%23f5c518%22/%3E%3Cellipse cx=%2250%22 cy=%2250%22 rx=%2240%22 ry=%2232%22 fill=%22%231f4fe0%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/display.css">
+</head>
+<body>
+<div id="stage">
+  <div class="bg-rays"></div>
+
+  <!-- Main game board -->
+  <section class="scene" id="scene-game">
+    <div class="top">
+      <div class="team-box" id="team0"><div class="tname"></div><div class="tscore">0</div><div class="ttag"></div></div>
+      <div class="center-top">
+        <div class="round-label"><span id="roundLabel">ROUND 1</span><span class="mult" id="multLabel"></span></div>
+        <div class="bank-box"><div class="bank-num" id="bankNum">0</div></div>
+      </div>
+      <div class="team-box" id="team1"><div class="tname"></div><div class="tscore">0</div><div class="ttag"></div></div>
+    </div>
+    <div class="question-bar" id="questionBar"><div class="qtext" id="qText"></div></div>
+    <div class="board-frame"><div class="board" id="board"></div></div>
+    <div class="bottom">
+      <div class="strikes" id="strikes"></div>
+    </div>
+  </section>
+
+  <!-- Fast Money -->
+  <section class="scene" id="scene-fm">
+    <div class="fm-title">FAST MONEY</div>
+    <div class="fm-frame"><div class="fm-board" id="fmBoard"></div></div>
+    <div class="fm-bottom">
+      <div class="fm-goal">GOAL <b id="fmGoal">200</b></div>
+      <div class="fm-total-box">TOTAL <b id="fmTotal">0</b></div>
+    </div>
+  </section>
+
+  <!-- Title -->
+  <section class="scene" id="scene-title">
+    <div class="logo"><div class="logo-inner"><span id="titleText">FAMILY FEUD</span></div></div>
+    <div class="versus" id="versus"></div>
+  </section>
+
+  <!-- Scores -->
+  <section class="scene" id="scene-scores">
+    <div class="scores-title">SCOREBOARD</div>
+    <div class="scores-row">
+      <div class="big-score" id="bs0"><div class="tname"></div><div class="tscore">0</div></div>
+      <div class="big-score" id="bs1"><div class="tname"></div><div class="tscore">0</div></div>
+    </div>
+  </section>
+
+  <!-- Winner -->
+  <section class="scene" id="scene-winner">
+    <div class="win-sub">AND THE WINNER IS</div>
+    <div class="win-name" id="winName"></div>
+    <div class="win-score" id="winScore"></div>
+  </section>
+
+  <div id="timer" class="timer"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" class="track"/><circle cx="50" cy="50" r="45" class="ring" id="timerRing"/></svg><span id="timerNum">0</span></div>
+  <div id="xOverlay"></div>
+  <div id="banner"><div class="banner-inner" id="bannerInner"></div></div>
+  <div id="confetti"></div>
+</div>
+
+<div id="startOverlay" hidden>
+  <div class="start-card">
+    <div class="start-title">Audience display</div>
+    <p>Click anywhere to enable sound.<br>Press <b>F</b> (or double-click) for fullscreen.</p>
+  </div>
+</div>
+<div id="waiting" hidden>Waiting for the host console… Open <b>index.html</b> and press <b>Open Display</b>.</div>
+
+<script src="js/sync.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/display.js"></script>
+</body>
+</html>
