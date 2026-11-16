@@ -1,0 +1,63 @@
+{
+  "title": "My Question Pack",
+  "questions": [
+    {
+      "question": "Name something you find in a kitchen.",
+      "answers": [
+        {
+          "text": "Fridge",
+          "points": 35
+        },
+        {
+          "text": "Stove",
+          "points": 25
+        },
+        {
+          "text": "Sink",
+          "points": 15
+        },
+        {
+          "text": "Microwave",
+          "points": 10
+        },
+        {
+          "text": "Toaster",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "question": "Bonus round question (always double points).",
+      "multiplier": 2,
+      "answers": [
+        {
+          "text": "Answer one",
+          "points": 50
+        },
+        {
+          "text": "Answer two",
+          "points": 30
+        },
+        {
+          "text": "Answer three",
+          "points": 20
+        }
+      ]
+    }
+  ],
+  "fastMoney": [
+    {
+      "question": "Fast Money question 1",
+      "answers": [
+        {
+          "text": "Top answer",
+          "points": 40
+        },
+        {
+          "text": "Second answer",
+          "points": 25
+        }
+      ]
+    }
+  ]
+}
